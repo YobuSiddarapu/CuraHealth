@@ -8,17 +8,17 @@ import com.base.Basetest;
 
 public class Loginfunctionality extends Basetest {
 
-   @FindBy (xpath="//input[@placeholder='example@gmail.com']")   
+   @FindBy (xpath="//input[@id='txt-username']")   
    WebElement userid;
 	
-   @FindBy (name="pword")
+   @FindBy (xpath="//input[@id='txt-password']")
    WebElement pass;
   
    
-   @FindBy (xpath="//button[text()='Login']")
+   @FindBy (xpath="//button[@id='btn-login']")
    WebElement loginbutton;
    
-   public Loginfunctionality() {           //constructor
+   public Loginfunctionality() {           
 	   
 	   PageFactory.initElements(driver,this);
    }
@@ -30,6 +30,11 @@ public class Loginfunctionality extends Basetest {
 	   pass.sendKeys(prop.getProperty("password"));
 	   loginbutton.click();
    }
-   
+   public void verifyinvalidlogin() {
+	   
+		  userid.sendKeys(prop.getProperty("invalidusername")); 
+		   pass.sendKeys(prop.getProperty("invalidpassword"));
+		   loginbutton.click();
+	   }
 	
 }

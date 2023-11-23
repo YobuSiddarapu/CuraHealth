@@ -2,10 +2,15 @@ package com.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 public class Utils {
 	public static String[][]Customerdata(String sheetname) throws Throwable{
@@ -33,6 +38,17 @@ public class Utils {
 		
 		
 	}
-	
-
+public static void takescreenshot(String filename,WebDriver driver) {		
+		
+	    try {
+	    	File destination = new File(filename);
+	    	
+	    	 FileUtils.copyFile(((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE), destination);
+	    	
+			
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+}
 }

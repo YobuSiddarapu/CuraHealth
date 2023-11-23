@@ -39,10 +39,10 @@ public class Basetest {
 		}
 		
 		
-//		extentreports = new ExtentReports();
-//		ExtentSparkReporter spark= new ExtentSparkReporter(".\\target\\report.html");
-//	    extentreports.attachReporter(spark);
-//	    
+		extentreports = new ExtentReports();
+		ExtentSparkReporter spark= new ExtentSparkReporter(".\\target\\report.html");
+	    extentreports.attachReporter(spark);
+	    
 	  
 
 	}
